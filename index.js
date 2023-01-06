@@ -35,12 +35,12 @@ client.on('messageCreate', async function (message) {
     const gptResponse = await openai.createCompletion({
       model: "davinci",
       prompt: `ChatGPT is a friendly chatbot\n\
-ChatGPT: Hello! How are you today?\n\
-${message?.author?.username}: ${message?.content}\n\
-ChatGPT:`,
-      temperature: 0.7,
+      ChatGPT: Hello! How are you today?\n\
+      ${message?.author?.username}: ${message?.content}\n\
+      ChatGPT:`,
+      temperature: 0.9,
       max_tokens: 100,
-      stop: ["Kaido:", "Matto"],
+      stop: ["Matto:"],
     })
     message.reply(`${gptResponse?.data?.choices[0]?.text}`);
     return;
